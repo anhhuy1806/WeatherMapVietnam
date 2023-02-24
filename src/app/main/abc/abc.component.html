@@ -1,0 +1,61 @@
+<div class="container app">
+    <div style="height: 1000px;" class="">
+        <div class="app-thoi-tiet">
+            <div id="chart">
+                <h1 class="mr-1" style="font-size: 42px;">Radars</h1>
+                <div>
+                    <form class="form-inline" (ngSubmit)="timKiem(f)" #f="ngForm">
+                        <label class="label" for="tinhThanh"><span style="color: red;">(*)</span> Chọn
+                            Tỉnh/thành:</label>
+                        <select class="app-sellec mr-3" name="cars" id="tinhThanh" (change)="getChange($event)"
+                            #corporation>
+                            <option [value]="item.name" *ngFor="let item of tinhThanh">{{item.name}}</option>
+                        </select>
+                        <button class="app-btn " type="submit">Tìm kiếm</button>
+                    </form>
+                </div>
+                <div>
+
+                </div>
+                <div class="d-flex container-span mt-2">
+                    <span #btn1 class="btn" (click)="changeBtn($event, 1)">Nhiệt độ</span>
+                    <span #btn2 class="btn" (click)="changeBtn($event, 2)">Lượng mưa</span>
+                    <span #btn3 class="btn last-btn" (click)="changeBtn($event, 3)">Gió</span>
+                    <div class="child-btn"></div>
+                </div>
+                <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [xaxis]="chartOptions.xaxis"
+                    [dataLabels]="chartOptions.dataLabels" [grid]="chartOptions.grid" [stroke]="chartOptions.stroke"
+                    [title]="chartOptions.title"></apx-chart>
+                <div class="d-flex justify-content-between" *ngIf="temp5day.length != 0">
+                    <div *ngFor="let item of temp5day">
+                        <div style="text-align: center;" *ngIf="item.pop >= 0.4">
+                            <div>
+                                <span>{{getDay(item)}}</span>
+                            </div>
+                            <img src="../../../assets/mua.png" alt="">
+                            <div class="d-flex justify-content-between">
+                                <span class="mr-3">{{(item.main.temp_max -273.15).toFixed(0) + '°'}}</span>
+                                <span>{{(item.main.temp_min -273.15).toFixed(0) + '°'}}</span>
+                            </div>
+                        </div>
+                        <div style="text-align: center;" *ngIf="item.pop < 0.4">
+                            <div>
+                                <span>{{getDay(item)}}</span>
+                            </div>
+                            <img src="../../../assets/nang.png" alt="">
+                            <div class="d-flex justify-content-between">
+                                <span>{{(item.main.temp_max -273.15).toFixed(0) + '°'}}</span>
+                                <span>{{(item.main.temp_min -273.15).toFixed(0) + '°'}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center mt-3 mb-3">
+            <agm-map [latitude]='lat' [longitude]='lng' [zoom]="zoom">
+                <agm-marker [latitude]="markerlat" [longitude]="markerlng" [label]="label"></agm-marker>
+            </agm-map>
+        </div>
+    </div>
+</div>

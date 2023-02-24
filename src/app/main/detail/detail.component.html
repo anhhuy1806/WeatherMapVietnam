@@ -1,0 +1,22 @@
+
+<div  class="report-container"  >
+ 
+    
+    <h2><button (click)="goBack()"><ion-icon class="arrow-back"name="arrow-back-outline"></ion-icon></button>{{movie?.name}}</h2>
+    
+        <div class="parent"*ngIf="movie">
+            <img class="img-fluid card-img-top" style="min-height: 200px;" src={{movie.imageName}} alt="">
+         <ol class="movies">
+            <li class="movieListItem" 
+        >
+        
+         
+            {{movie.conTent}}
+        
+            </li>
+         </ol>
+         
+        </div>
+</div>
+
+  

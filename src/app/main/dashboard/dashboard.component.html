@@ -1,0 +1,53 @@
+
+<div class="card">
+    <div class="row h-100 justify-content-around g-2 ">
+      <div routerLink="/detail/{{movie.id}}"routerLinkActive="active" 
+        class="col-sm-12 col-md-5 h-100 m-2"
+        *ngFor="let movie of mainMovies"
+      >
+        <div class="card h-100">
+          <div class="bg-image hover-overlay" mdbRipple rippleColor="light">
+            <img
+              [src]="movie.imageName"
+              class="img-fluid" style="min-height: 500px;"
+            />
+          </div>
+          <div class="card-body">
+  
+          <h5 class="card-title" style="min-height: 100px;">{{ movie.name }}</h5>
+          <h6 class="card-content" >{{ movie.conTent.substring(0, 100) + "..." }}</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="row h-100 justify-content-around g-2">
+    <div routerLink="/detail/{{movie.id}}"routerLinkActive="active" 
+      class="col-sm-6 col-md-3 h-100 m-2"
+      *ngFor="let movie of subMovies" style="max-width: 18rem;"
+    >
+      <div class="card h-100">
+        <div class="bg-image hover-overlay " mdbRipple rippleColor="light">
+          <img
+            [src]="movie.imageName"
+            class="img-fluid " style="min-height: 200px;"
+           
+          />
+        </div>
+        <div class="card-body">
+
+        <h5 class="card-title">{{ movie.name }}</h5>
+        <h6 class="card-content">{{ movie.conTent.substring(0, 100) + "..." }}</h6>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+
+</div>
+
+
+

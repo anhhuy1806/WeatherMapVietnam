@@ -1,0 +1,61 @@
+* {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+.app {
+  h1 {
+    margin: 0;
+  }
+  &-btn {
+    width: 72px;
+    height: 36px;
+    background-color: rgb(39, 117, 235);
+    border-radius: 5px;
+  }
+  .label {
+    margin-right: 8px;
+  }
+  &-sellec {
+    height: 36px;
+    margin-right: 16px;
+  }
+  agm-map {
+    display: block;
+    height: 500px !important;
+    width: 100%;
+  }
+  #chart {
+    max-width: 850px;
+    margin: 35px auto;
+  }
+  .app-thoi-tiet {
+    .container-span {
+      position: relative;
+      div {
+        position: absolute;
+        // width: 70px;
+        height: 5px;
+        background-color: red;
+        left: 0;
+        bottom: -5px;
+        transition: all 0.5s;
+      }
+    }
+    .last-btn {
+      padding: 0;
+      font-weight: 600;
+    }
+    .btn:not(.last-btn) {
+      margin-right: 8px;
+      padding: 0;
+      font-weight: 600;
+      // &::after {
+      //   content: "";
+      //   // width: 1px;
+      //   margin: auto 10px;
+      //   border: 1px solid;
+      //   background-color: red;
+      // }
+    }
+  }
+}
